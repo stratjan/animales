@@ -1,15 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from typing import Dict, List
 from models.animal import AnimalResponse, ContinentInfo, AnimalsDataResponse
-import os
-from motor.motor_asyncio import AsyncIOMotorClient
 
 router = APIRouter(prefix="/api", tags=["animals"])
-
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
 
 # Continent data
 CONTINENTS = [
