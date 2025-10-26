@@ -65,8 +65,8 @@ const HomePage = () => {
 
   if (loading) {
     return (
-      <div className=\"min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center\">
-        <div className=\"text-white text-2xl font-bold\">Cargando animales...</div>
+      <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center">
+        <div className="text-white text-2xl font-bold">Cargando animales...</div>
       </div>
     );
   }
