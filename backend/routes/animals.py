@@ -20,15 +20,18 @@ CONTINENTS = [
 async def get_all_animals():
     """
     Get all animals organized by continent with sound URLs.
+    For now, returns mock data with placeholder sound URLs.
     """
     try:
-        # Fetch all animals from database
-        animals_cursor = db.animals.find()
-        animals_list = await animals_cursor.to_list(length=1000)
+        # Return mock data with public sound URLs
+        return get_mock_animals_data()
         
-        # If database is empty, return mock data with public sound URLs
-        if not animals_list:
-            return get_mock_animals_data()
+        # Future: Fetch from database when implemented
+        # animals_cursor = db.animals.find()
+        # animals_list = await animals_cursor.to_list(length=1000)
+        
+        # if not animals_list:
+        #     return get_mock_animals_data()
         
         # Organize animals by continent
         animals_by_continent = {}
