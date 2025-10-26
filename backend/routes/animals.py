@@ -33,26 +33,26 @@ async def get_all_animals():
         # if not animals_list:
         #     return get_mock_animals_data()
         
-        # Organize animals by continent
-        animals_by_continent = {}
-        for continent in CONTINENTS:
-            animals_by_continent[continent["id"]] = []
-        
-        for animal_doc in animals_list:
-            continent = animal_doc.get("continent")
-            if continent in animals_by_continent:
-                animal_response = {
-                    "id": animal_doc.get("animal_id"),
-                    "name": animal_doc.get("name"),
-                    "image": animal_doc.get("image_url"),
-                    "sounds": animal_doc.get("sound_urls", [])
-                }
-                animals_by_continent[continent].append(animal_response)
-        
-        return {
-            "continents": CONTINENTS,
-            "animals": animals_by_continent
-        }
+        # Future: Organize animals by continent when DB is used
+        # animals_by_continent = {}
+        # for continent in CONTINENTS:
+        #     animals_by_continent[continent["id"]] = []
+        # 
+        # for animal_doc in animals_list:
+        #     continent = animal_doc.get("continent")
+        #     if continent in animals_by_continent:
+        #         animal_response = {
+        #             "id": animal_doc.get("animal_id"),
+        #             "name": animal_doc.get("name"),
+        #             "image": animal_doc.get("image_url"),
+        #             "sounds": animal_doc.get("sound_urls", [])
+        #         }
+        #         animals_by_continent[continent].append(animal_response)
+        # 
+        # return {
+        #     "continents": CONTINENTS,
+        #     "animals": animals_by_continent
+        # }
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching animals: {str(e)}")
