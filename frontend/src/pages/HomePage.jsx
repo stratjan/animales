@@ -1,36 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useRef } from 'react';
 import AnimalCard from '../components/AnimalCard';
 import ContinentSelector from '../components/ContinentSelector';
 import { Headphones } from 'lucide-react';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { continents, animals } from '../data/animalsData';
 
 const HomePage = () => {
   const [selectedContinent, setSelectedContinent] = useState('africa');
   const [soundVariants, setSoundVariants] = useState({});
-  const [continents, setContinents] = useState([]);
-  const [animals, setAnimals] = useState({});
-  const [loading, setLoading] = useState(true);
   const audioRef = useRef(null);
-
-  // Fetch animals data from backend
-  useEffect(() => {
-    const fetchAnimals = async () => {
-      try {
-        const response = await axios.get(`${API}/animals`);
-        setContinents(response.data.continents);
-        setAnimals(response.data.animals);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching animals:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchAnimals();
-  }, []);
 
   const currentAnimals = animals[selectedContinent] || [];
 
@@ -62,14 +39,6 @@ const HomePage = () => {
       // Fallback: still show animation even if sound fails
     });
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center">
-        <div className="text-white text-2xl font-bold">Cargando animales...</div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600">
