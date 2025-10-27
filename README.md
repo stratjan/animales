@@ -12,6 +12,42 @@ Eine kinderfreundliche, interaktive Website zum Lernen von Tierstimmen aus der g
 - **Spanische UI** - perfekt für Kinder
 - **100% statisch** - kein Backend benötigt
 
+## 🔊 Troubleshooting - Keine Sounds?
+
+Wenn du keine Sounds hörst auf Netlify, hier sind die Lösungen:
+
+### Problem 1: Browser-Kompatibilität (.ogg Format)
+
+**Lösung**: Verwende **Chrome** oder **Firefox**. Safari unterstützt .ogg nicht gut.
+
+### Problem 2: Browser blockiert Audio
+
+**Lösung**: 
+1. Überprüfe in den Browser-Einstellungen, ob Audio erlaubt ist
+2. Klicke auf den "Prueba de Audio" Button auf der Seite
+3. Erlaube Audio-Wiedergabe wenn der Browser fragt
+
+### Problem 3: CORS-Policy von Wikimedia
+
+**Wenn Wikimedia URLs blockiert sind**, kannst du die Sound-URLs ersetzen:
+
+Öffne `/frontend/src/data/animalsData.js` und ersetze die Wikimedia URLs durch lokale Dateien oder andere Public Domain Quellen wie:
+- https://www.zapsplat.com (nach Registration)
+- https://freesound.org (mit API key)
+
+### Problem 4: Browser Dev Tools zeigt Fehler
+
+Öffne die Browser-Konsole (F12) und schaue nach Fehlermeldungen. Die App zeigt jetzt detaillierte Debug-Informationen.
+
+### Schnell-Test:
+
+1. Öffne deine Netlify-Seite
+2. Klicke auf "Probar Sonido de Elefante" 
+3. Wenn das funktioniert, funktionieren alle Sounds
+4. Wenn nicht, siehst du die Fehlermeldung
+
+---
+
 ## 🚀 Deployment auf Netlify
 
 ### Option 1: Via GitHub
