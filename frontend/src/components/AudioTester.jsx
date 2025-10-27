@@ -10,12 +10,11 @@ const AudioTester = () => {
     setTesting(true);
     setTestResult(null);
 
-    // Test URL - Elephant sound from Wikimedia
-    const testUrl = 'https://upload.wikimedia.org/wikipedia/commons/4/41/Loxodonta_africana_-_trumpeting.ogg';
+    // Test URL - Elephant sound from SoundBible (MP3 format)
+    const testUrl = 'https://soundbible.com/mp3/Elephant-SoundBible.com-1498791621.mp3';
 
     try {
       const audio = new Audio();
-      audio.crossOrigin = "anonymous";
       audio.src = testUrl;
 
       audio.addEventListener('canplaythrough', () => {
@@ -29,7 +28,7 @@ const AudioTester = () => {
       audio.addEventListener('error', (e) => {
         setTestResult({ 
           success: false, 
-          message: `❌ No se puede cargar el audio. Error: ${audio.error?.message || 'Desconocido'}` 
+          message: `❌ No se puede cargar el audio. Por favor, verifica tu conexión a internet.` 
         });
         setTesting(false);
       });
