@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import AnimalCard from '../components/AnimalCard';
 import ContinentSelector from '../components/ContinentSelector';
+import AudioTester from '../components/AudioTester';
 import { Headphones } from 'lucide-react';
 import { continents, animals } from '../data/animalsData';
 
