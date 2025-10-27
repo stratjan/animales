@@ -100,6 +100,9 @@ const HomePage = () => {
 
       {/* Main content */}
       <main className="container mx-auto px-6 py-12">
+        {/* Audio Tester */}
+        <AudioTester />
+
         {/* Continent title */}
         <div className="mb-8 text-center">
           <h2 className="text-4xl font-bold text-white drop-shadow-lg mb-2">
