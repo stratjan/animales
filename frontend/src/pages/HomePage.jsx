@@ -91,6 +91,9 @@ const HomePage = () => {
           <p className="text-center text-lg font-semibold text-purple-900">
             ¡Haz clic en los animales para escuchar sus sonidos! 🎵
           </p>
+          <p className="text-center text-sm text-purple-800 mt-1">
+            Si no escuchas los sonidos, asegúrate de que tu navegador permita reproducir audio.
+          </p>
         </div>
       </div>
 
