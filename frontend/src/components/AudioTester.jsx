@@ -67,11 +67,11 @@ const AudioTester = () => {
       <div className="mt-3 text-sm text-gray-600 space-y-1">
         <p className="flex items-start gap-2">
           <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
-          <span>Si no funciona, intenta usar <strong>Chrome</strong> o <strong>Firefox</strong></span>
+          <span>Si no funciona, asegúrate de que tu volumen esté activado</span>
         </p>
         <p className="flex items-start gap-2">
           <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
-          <span>Safari puede tener problemas con archivos .ogg</span>
+          <span>Los sonidos son archivos MP3 de <strong>SoundBible.com</strong></span>
         </p>
       </div>
     </div>
