@@ -24,20 +24,44 @@ const HomePage = () => {
 
     // Play the actual sound
     const soundUrl = animal.sounds[currentVariantIndex];
-    console.log(`Playing sound: ${soundUrl} for ${animal.name}`);
+    console.log(`🔊 Intentando reproducir: ${soundUrl}`);
     
-    // Create and play audio
+    // Stop current audio if playing
     if (audioRef.current) {
       audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
     
-    const audio = new Audio(soundUrl);
+    // Create new audio element
+    const audio = new Audio();
+    audio.crossOrigin = "anonymous";
+    audio.preload = "auto";
+    audio.src = soundUrl;
     audioRef.current = audio;
     
-    audio.play().catch(error => {
-      console.log('Audio playback failed:', error);
-      // Fallback: still show animation even if sound fails
+    // Add event listeners for debugging
+    audio.addEventListener('loadeddata', () => {
+      console.log('✅ Audio cargado correctamente');
     });
+    
+    audio.addEventListener('error', (e) => {
+      console.error('❌ Error al cargar audio:', e);
+      alert(`No se pudo reproducir el sonido de ${animal.name}. Por favor, verifica tu conexión a internet.`);
+    });
+    
+    // Play with user interaction
+    const playPromise = audio.play();
+    
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log('✅ Reproduciendo audio');
+        })
+        .catch(error => {
+          console.error('❌ Error al reproducir:', error);
+          alert(`Error: ${error.message}\n\nPrueba hacer clic de nuevo o recargar la página.`);
+        });
+    }
   };
 
   return (
